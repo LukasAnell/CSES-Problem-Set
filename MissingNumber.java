@@ -9,9 +9,10 @@ public class MissingNumber {
         scanner.nextLine();
         String numList = scanner.nextLine();
         // n*(n-1) / 2
-        long numArray = Arrays.stream(numList.split("\\s+"))
+        long sumNums = Arrays.stream(numList.split("\\s+"))
                 .mapToLong(Long::parseLong)
                 .sum();
-        System.out.println(n - numArray);
+        long output = sumNums * 2 / (n * (n - 1));
+        System.out.print(output);
     }
 }
