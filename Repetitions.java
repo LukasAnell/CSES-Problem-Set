@@ -20,7 +20,7 @@ public class Repetitions {
                         Integer::sum)
                 );
         if (frequencyMap.size() <= 1) {
-            System.out.println(Collections.max(frequencyMap.entrySet(), Map.Entry.comparingByValue()).getKey());
+            System.out.println(Collections.max(frequencyMap.entrySet(), Map.Entry.comparingByValue()).getValue());
             return;
         }
 
