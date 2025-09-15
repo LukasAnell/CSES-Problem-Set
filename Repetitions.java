@@ -20,8 +20,8 @@ public class Repetitions {
         int start = 0;
         for (int i = 0; i < sequence.length() - 1; i++) {
             char startChar = sequence.charAt(start);
-            if (sequence.charAt(i + 1) != startChar) {
-                maxRunLengths.put(startChar, Math.max(maxRunLengths.get(startChar), i - start));
+            if (sequence.charAt(i + 1) != startChar || i == sequence.length() - 2) {
+                maxRunLengths.put(startChar, Math.max(maxRunLengths.get(startChar), i - start + 1));
                 start = i + 1;
             }
         }
