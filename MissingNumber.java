@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MissingNumber {
@@ -7,12 +8,10 @@ public class MissingNumber {
         long n = scanner.nextInt();
         scanner.nextLine();
         String numList = scanner.nextLine();
-
-        for (long i = 1; i <= n; i++) {
-            if (!numList.contains(Long.toString(i))) {
-                System.out.print(i);
-                break;
-            }
-        }
+        // n*(n-1) / 2
+        long numArray = Arrays.stream(numList.split("\\s+"))
+                .mapToLong(Long::parseLong)
+                .sum();
+        System.out.println(n - numArray);
     }
 }
