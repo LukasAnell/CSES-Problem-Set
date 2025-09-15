@@ -9,13 +9,20 @@ public class Repetitions {
         int maxRunLength = Integer.MIN_VALUE;
         for (int i = 0; i < sequence.length(); i++) {
             int runLength = 0;
-            for (int j = 0; j < sequence.length(); j++) {
+            boolean reachedEnd = false;
+            for (int j = i; j < sequence.length(); j++) {
                 if (sequence.charAt(i) != sequence.charAt(j)) {
                     break;
+                }
+                if (j == sequence.length() - 1) {
+                    reachedEnd = true;
                 }
                 runLength++;
             }
             maxRunLength = Math.max(maxRunLength, runLength);
+            if (reachedEnd) {
+                break;
+            }
         }
         System.out.println(maxRunLength);
     }
