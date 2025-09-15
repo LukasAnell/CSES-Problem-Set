@@ -9,7 +9,7 @@ public class Repetitions {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String sequence = scanner.nextLine();
+        String sequence = scanner.nextLine() + " ";
 
         Map<Character, Integer> maxRunLengths = new HashMap<>();
         maxRunLengths.put('A', 0);
@@ -20,15 +20,11 @@ public class Repetitions {
         int start = 0;
         for (int i = 0; i < sequence.length() - 1; i++) {
             char startChar = sequence.charAt(start);
-            if(i == sequence.length() - 2) {
-                i++;
-                maxRunLengths.put(startChar, Math.max(maxRunLengths.get(startChar), i - start + 1));
-            } else if (sequence.charAt(i + 1) != startChar) {
+            if (sequence.charAt(i + 1) != startChar || i == sequence.length() - 2) {
                 maxRunLengths.put(startChar, Math.max(maxRunLengths.get(startChar), i - start + 1));
                 start = i + 1;
             }
         }
-        System.out.println(maxRunLengths);
         System.out.println(Collections.max(maxRunLengths.entrySet(), Map.Entry.comparingByValue()).getValue());
     }
 }
