@@ -6,7 +6,7 @@ public class WeirdAlgorithm {
 
         int startingNum = scanner.nextInt();
         int currentNum = startingNum;
-        while (currentNum >= 4) {
+        while (currentNum > 4) {
             System.out.printf("%d ", currentNum);
 
             if (currentNum % 2 == 0) {
