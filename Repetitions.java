@@ -1,4 +1,8 @@
+import java.util.Collections;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Repetitions {
     public static void main(String[] args) {
@@ -7,6 +11,19 @@ public class Repetitions {
         String sequence = scanner.nextLine();
 
         int maxRunLength = Integer.MIN_VALUE;
+
+        Map<Character, Integer> frequencyMap = sequence.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.toMap(
+                        Function.identity(),
+                        c -> 1,
+                        Integer::sum)
+                );
+        if (frequencyMap.size() <= 1) {
+            System.out.println(Collections.max(frequencyMap.entrySet(), Map.Entry.comparingByValue()).getKey());
+            return;
+        }
+
         for (int i = 0; i < sequence.length(); i++) {
             int runLength = 0;
             boolean reachedEnd = false;
