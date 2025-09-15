@@ -15,6 +15,6 @@ public class WeirdAlgorithm {
                 currentNum = currentNum * 3 + 1;
             }
         }
-        System.out.println("2 1");
+        System.out.println("4 2 1");
     }
 }
