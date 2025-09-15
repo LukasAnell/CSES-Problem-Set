@@ -12,17 +12,17 @@ public class Repetitions {
 
         int maxRunLength = Integer.MIN_VALUE;
 
-//        Map<Character, Integer> frequencyMap = sequence.chars()
-//                .mapToObj(c -> (char) c)
-//                .collect(Collectors.toMap(
-//                        Function.identity(),
-//                        c -> 1,
-//                        Integer::sum)
-//                );
-//        if (frequencyMap.size() <= 1) {
-//            System.out.println(Collections.max(frequencyMap.entrySet(), Map.Entry.comparingByValue()).getValue());
-//            return;
-//        }
+        Map<Character, Integer> frequencyMap = sequence.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.toMap(
+                        Function.identity(),
+                        c -> 1,
+                        Integer::sum)
+                );
+        if (frequencyMap.size() <= 1) {
+            System.out.println(Collections.max(frequencyMap.entrySet(), Map.Entry.comparingByValue()).getValue());
+            return;
+        }
 
         if (sequence.length() - sequence.replace(sequence.substring(0, 1), "").length() == sequence.length() - 1) {
             System.out.println(sequence.length());
