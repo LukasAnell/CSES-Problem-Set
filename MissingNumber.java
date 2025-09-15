@@ -12,7 +12,7 @@ public class MissingNumber {
         long sumNums = Arrays.stream(numList.split("\\s+"))
                 .mapToLong(Long::parseLong)
                 .sum();
-        long output = sumNums * 2 / (n * (n - 1));
-        System.out.print(output);
+        long output = n * (n - 1) / 2 - sumNums;
+        System.out.println(output);
     }
 }
