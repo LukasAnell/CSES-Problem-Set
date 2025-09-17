@@ -39,6 +39,12 @@ public class Permutations {
         }
 
         int[] combined = IntStream.concat(IntStream.of(evens), IntStream.of(odds)).toArray();
-        System.out.println(String.join(" ", Arrays.stream(combined).mapToObj(Integer::toString).toArray(String[]::new)));
+        System.out.println(
+                String.join(" ",
+                        Arrays.stream(combined)
+                                .mapToObj(Integer::toString)
+                                .toArray(String[]::new)
+                )
+        );
     }
 }
