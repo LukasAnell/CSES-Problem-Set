@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
@@ -38,8 +39,6 @@ public class Permutations {
         }
 
         int[] combined = IntStream.concat(IntStream.of(evens), IntStream.of(odds)).toArray();
-        for (int num : combined) {
-            System.out.printf("%d ", num);
-        }
+        System.out.println(String.join(" ", Arrays.stream(combined).mapToObj(Integer::toString).toArray(String[]::new)));
     }
 }
