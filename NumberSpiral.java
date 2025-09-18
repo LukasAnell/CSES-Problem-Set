@@ -8,17 +8,17 @@ public class NumberSpiral {
         int numTests = scanner.nextInt();
         scanner.nextLine();
 
-        long[][] tests = new long[numTests][2];
+        String[] tests = new String[numTests];
         for (int i = 0; i < numTests; i++) {
-            long[] currentTest = Arrays.stream(scanner.nextLine().split("\\s+"))
-                    .mapToLong(Long::parseLong)
-                    .toArray();
-            tests[i] = currentTest;
+            tests[i] = scanner.nextLine();
         }
 
-        for (long[] test : tests) {
-            long y = test[0];
-            long x = test[1];
+        for (String test : tests) {
+            String[] coordinates = test.split("\\s+");
+
+            long y = Integer.parseInt(coordinates[0]);
+            long x = Integer.parseInt(coordinates[1]);
+
             if (y >= x) {
                 if (y % 2 == 0) {
                     System.out.println((long) (Math.pow(y, 2)) - (x - 1));
