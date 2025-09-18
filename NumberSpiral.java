@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class NumberSpiral {
@@ -12,23 +13,23 @@ public class NumberSpiral {
             String test = scanner.nextLine();
             int spaceIndex = test.indexOf(" ");
 
-            long y = Long.parseLong(test.substring(0, spaceIndex));
-            long x = Long.parseLong(test.substring(spaceIndex + 1));
+            BigInteger y = new BigInteger(test.substring(0, spaceIndex));
+            BigInteger x = new BigInteger(test.substring(spaceIndex + 1));
 
-            long n = Math.max(x, y);
-            long base = (n - 1) * (n - 1);
+            BigInteger n = y.max(x);
+            BigInteger base = n.subtract(BigInteger.ONE).multiply(n.subtract(BigInteger.ONE));
 
-            if (n % 2 == 0) {
-                if (x == n) {
-                    output.append(n * n - y + 1);
+            if (n.mod(BigInteger.TWO).equals(BigInteger.ZERO)) {
+                if (x.equals(n)) {
+                    output.append(n.multiply(n).subtract(y).add(BigInteger.ONE));
                 } else {
-                    output.append(base + x);
+                    output.append(base.add(x));
                 }
             } else {
-                if (y == n) {
-                    output.append(n * n - x + 1);
+                if (y.equals(n)) {
+                    output.append(n.multiply(n).subtract(x).add(BigInteger.ONE));
                 } else {
-                    output.append(base + y);
+                    output.append(base.add(y));
                 }
             }
 
