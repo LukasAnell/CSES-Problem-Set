@@ -18,15 +18,15 @@ public class NumberSpiral {
 
             if (y >= x) {
                 if (y % 2 == 0) {
-                    output.append(y * y - (x - 1));
+                    output.append(y * y - (x - 1)).append("\n");
                 } else {
-                    output.append((y - 1) * (y - 1) + (y - x) + 1);
+                    output.append((y - 1) * (y - 1) + (y - x) + 1).append("\n");
                 }
             } else {
                 if (x % 2 == 0) {
-                    output.append((x - 1) * (x - 1) + (x - y) + 1);
+                    output.append((x - 1) * (x - 1) + (x - y) + 1).append("\n");
                 } else {
-                    output.append(x * x - (y - 1));
+                    output.append(x * x - (y - 1)).append("\n");
                 }
             }
         }
