@@ -8,28 +8,28 @@ public class NumberSpiral {
         int numTests = scanner.nextInt();
         scanner.nextLine();
 
-        int[][] tests = new int[numTests][2];
+        long[][] tests = new long[numTests][2];
         for (int i = 0; i < numTests; i++) {
-            int[] currentTest = Arrays.stream(scanner.nextLine().split("\\s+"))
-                    .mapToInt(Integer::parseInt)
+            long[] currentTest = Arrays.stream(scanner.nextLine().split("\\s+"))
+                    .mapToLong(Long::parseLong)
                     .toArray();
             tests[i] = currentTest;
         }
 
-        for (int[] test : tests) {
-            int y = test[0];
-            int x = test[1];
+        for (long[] test : tests) {
+            long y = test[0];
+            long x = test[1];
             if (y >= x) {
                 if (y % 2 == 0) {
-                    System.out.println((int) (Math.pow(y, 2)) - (x - 1));
+                    System.out.println((long) (Math.pow(y, 2)) - (x - 1));
                 } else {
-                    System.out.println((int) (Math.pow(y - 1, 2)) + (y - x) + 1);
+                    System.out.println((long) (Math.pow(y - 1, 2)) + (y - x) + 1);
                 }
             } else {
                 if (x % 2 == 0) {
-                    System.out.println((int) (Math.pow(x - 1, 2)) + (x - y) + 1);
+                    System.out.println((long) (Math.pow(x - 1, 2)) + (x - y) + 1);
                 } else {
-                    System.out.println((int) (Math.pow(x, 2)) - (y - 1));
+                    System.out.println((long) (Math.pow(x, 2)) - (y - 1));
                 }
             }
         }
